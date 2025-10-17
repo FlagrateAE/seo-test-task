@@ -302,15 +302,15 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 296241032}
   - {fileID: 1665023654}
+  - {fileID: 296241032}
   - {fileID: 1584594053}
   m_Father: {fileID: 2035354905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 108.3}
-  m_SizeDelta: {x: -1433.0371, y: 168.5269}
+  m_AnchoredPosition: {x: 0, y: 157.6}
+  m_SizeDelta: {x: -1283.5365, y: 168.5269}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &285021101
 MonoBehaviour:
@@ -469,7 +469,19 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 296241036}
+        m_TargetAssemblyTypeName: BulletButton, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &296241036
 MonoBehaviour:
@@ -483,7 +495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f20fc92224cab4b8263fa16e7173db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3770583889651915662, guid: 8597465550bcb3a40a92660801f0e104, type: 3}
+  carette: {fileID: 1474535121}
+  caretteSpeed: 0.2
+  caretteOffset: {x: -2, y: 5}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +842,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac2dfb6494e0d34fb47d3dcc434fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1474535120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1474535121}
+  - component: {fileID: 1474535123}
+  - component: {fileID: 1474535122}
+  m_Layer: 5
+  m_Name: BulletCarette
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1474535121
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474535120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.1, y: 2.1, z: 2.1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2035354905}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.96, y: -378.74}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1474535122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474535120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8f44b6bde489c944e8ff91272ea456b9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1474535123
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474535120}
+  m_CullTransparentMesh: 1
 --- !u!1 &1534457451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,13 +1240,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1709767244}
-        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
-        m_MethodName: SelectBullet
-        m_Mode: 2
+      - m_Target: {fileID: 1584594057}
+        m_TargetAssemblyTypeName: BulletButton, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 3770583889651915662, guid: 15141b352b6889b4c87b222b6ac7a444, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1175,7 +1264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f20fc92224cab4b8263fa16e7173db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3770583889651915662, guid: 15141b352b6889b4c87b222b6ac7a444, type: 3}
+  carette: {fileID: 1474535121}
+  caretteSpeed: 0.2
+  caretteOffset: {x: -2, y: 5}
 --- !u!1 &1665023653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1400,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1665023658}
+        m_TargetAssemblyTypeName: BulletButton, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1665023658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1321,7 +1424,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f20fc92224cab4b8263fa16e7173db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3770583889651915662, guid: 6d8e90f2d14f29c41b2f5a4b49cdb6c1, type: 3}
+  carette: {fileID: 1474535121}
+  caretteSpeed: 0.2
+  caretteOffset: {x: -2, y: 5}
 --- !u!1 &1709767239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1682,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 285021100}
+  - {fileID: 1474535121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
