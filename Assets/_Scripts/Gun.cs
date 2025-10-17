@@ -6,26 +6,26 @@ public class Gun : MonoBehaviour
     [SerializeField] private InputActionReference shootAction;
     [SerializeField] private Transform muzzle;
 
-    [SerializeField] private float cooldown = 1f;
+    [SerializeField] private Animator playerAnimator;
+    private const string ShootTrigger = "Shoot";
 
-    private GameObject _selectedBulletPrefab;
+    [SerializeField] private float cooldown = 1f;
+    [SerializeField] private float spread = 5f;
+    [SerializeField] private GameObject selectedBulletPrefab;
     private float _lastShotTime;
 
     public void SelectBullet(GameObject prefab)
     {
-        Debug.Log("Selected bullet: " + prefab.name);
-        _selectedBulletPrefab = prefab;
+        selectedBulletPrefab = prefab;
     }
 
     private void OnEnable()
     {
-        shootAction.action.performed += (ctx) => TryShoot();
+        shootAction.action.started += (ctx) => TryShoot();
     }
 
     private void TryShoot()
     {
-        Debug.Log("Trying to shoot");
-
         if (Time.time - _lastShotTime < cooldown)
             return;
 
@@ -35,6 +35,13 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(_selectedBulletPrefab, muzzle.position, muzzle.rotation);
+        Instantiate(selectedBulletPrefab, muzzle.position, GetSpreadRotation());
+        playerAnimator.SetTrigger(ShootTrigger);
+    }
+
+    private Quaternion GetSpreadRotation()
+    {
+        float spreadY = Random.Range(-spread / 2f, spread / 2f);
+        return Quaternion.Euler(0, spreadY + 180, 0);
     }
 }

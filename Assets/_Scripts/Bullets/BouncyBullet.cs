@@ -1,18 +1,13 @@
 using UnityEngine;
 
-public class BouncyBullet : Bullet
+public class BouncyBullet : BaseBullet
 {
     [SerializeField] private int maxBounces = 3;
 
-    public override void OnHit(Enemy enemy)
-    {
-        enemy.Hit(gameObject);
-        if (maxBounces <= 0) DestroySelf();
-    }
-
-    public override void OnCollisionEnter(Collision collision)
+    public override void Hit(GameObject target)
     {
         maxBounces--;
-        base.OnCollisionEnter(collision);
+        base.Hit(target);
+        if (maxBounces <= 0) DestroySelf();
     }
 }

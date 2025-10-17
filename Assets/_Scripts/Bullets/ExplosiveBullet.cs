@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ExplosiveBullet : Bullet
+public class ExplosiveBullet : BaseBullet
 {
     [SerializeField] private float explosionRadius = 5f;
 
@@ -8,9 +8,6 @@ public class ExplosiveBullet : Bullet
 
     public override void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Enemy"))
-            return;
-
         Physics.OverlapSphereNonAlloc(
             collision.contacts[0].point,
             explosionRadius,
@@ -19,10 +16,10 @@ public class ExplosiveBullet : Bullet
 
         foreach (var hitCollider in _hitColliders)
         {
-            if (hitCollider == null || !hitCollider.CompareTag("Enemy"))
-                continue;
-
-            OnHit(hitCollider.GetComponent<Enemy>());
+            Hit(hitCollider.gameObject);
         }
+        _hitColliders.Initialize();
+
+        DestroySelf();
     }
 }
