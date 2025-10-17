@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float cooldown = 1f;
     [SerializeField] private float spread = 5f;
     [SerializeField] private GameObject selectedBulletPrefab;
-    private float _lastShotTime;
+    private float _timer;
 
     public void SelectBullet(GameObject prefab)
     {
@@ -21,20 +21,25 @@ public class Gun : MonoBehaviour
 
     private void OnEnable()
     {
-        shootAction.action.started += (ctx) => TryShoot();
+        shootAction.action.started += TryShoot;
     }
 
     private void OnDisable()
     {
-        shootAction.action.started -= (ctx) => TryShoot();
+        shootAction.action.started -= TryShoot;
     }
 
-    private void TryShoot()
+    private void Update()
     {
-        if (Time.time - _lastShotTime < cooldown)
-            return;
+        if (_timer > 0f)
+            _timer -= Time.deltaTime;
+    }
 
-        _lastShotTime = Time.time;
+    private void TryShoot(InputAction.CallbackContext _)
+    {
+        if (_timer > 0f) return;
+
+        _timer = cooldown;
         Shoot();
     }
 

@@ -22,6 +22,7 @@ public class ExplosiveBullet : BaseBullet
 
         foreach (var hitCollider in _hitColliders)
         {
+            if (hitCollider == null) continue;
             Hit(hitCollider.gameObject);
         }
         _hitColliders.Initialize();
