@@ -1,3 +1,4 @@
+using System.IO.IsolatedStorage;
 using UnityEngine;
 
 public class ExplosiveBullet : BaseBullet
@@ -46,6 +47,20 @@ public class ExplosiveBullet : BaseBullet
         if (_explosionInstance != null)
         {
             Destroy(_explosionInstance);
+        }
+    }
+
+    private void DrawDebugSphere()
+    {
+        for (int i = 0; i <= 360; i += 10)
+        {
+            float rad = i * Mathf.Deg2Rad;
+            Vector3 point = new(
+                transform.position.x + Mathf.Cos(rad) * explosionRadius,
+                transform.position.y,
+                transform.position.z + Mathf.Sin(rad) * explosionRadius
+            );
+            Debug.DrawLine(transform.position, point, Color.red, 1f);
         }
     }
 }
