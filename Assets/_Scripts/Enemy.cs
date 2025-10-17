@@ -1,9 +1,18 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Enemy : MonoBehaviour
 {
-    public void Hit(GameObject attacker)
+    private Animator _animator;
+    private const string Shot_Trigger = "Shot";
+
+    private void Awake()
     {
-        Debug.Log($"{name} hit!");
+        _animator = GetComponent<Animator>();
+    }
+
+    public void Hit()
+    {
+        _animator.SetTrigger(Shot_Trigger);
     }
 }

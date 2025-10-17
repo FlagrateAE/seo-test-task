@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform muzzle;
 
     [SerializeField] private Animator playerAnimator;
-    private const string ShootTrigger = "Shoot";
+    private const string Shoot_Trigger = "Shoot";
 
     [SerializeField] private float cooldown = 1f;
     [SerializeField] private float spread = 5f;
@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour
     private void Shoot()
     {
         Instantiate(selectedBulletPrefab, muzzle.position, GetSpreadRotation());
-        playerAnimator.SetTrigger(ShootTrigger);
+        playerAnimator.SetTrigger(Shoot_Trigger);
     }
 
     private Quaternion GetSpreadRotation()

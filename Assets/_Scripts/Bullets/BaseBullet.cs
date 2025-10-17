@@ -6,6 +6,8 @@ public abstract class BaseBullet : MonoBehaviour
     [SerializeField] protected float speed = 20f;
     [SerializeField] protected float lifeTime = 5f;
 
+    private const string Enemy_Tag = "Enemy";
+
     private void Start()
     {
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
@@ -20,10 +22,10 @@ public abstract class BaseBullet : MonoBehaviour
 
     public virtual void Hit(GameObject target)
     {
-        if (!gameObject.CompareTag("Enemy"))
+        if (!target.CompareTag(Enemy_Tag))
             return;
 
-        gameObject.GetComponent<Enemy>().Hit(gameObject);
+        target.GetComponent<Enemy>().Hit();
     }
 
     protected void DestroySelf() => Destroy(gameObject);
