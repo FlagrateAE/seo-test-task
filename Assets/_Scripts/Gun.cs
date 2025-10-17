@@ -7,13 +7,14 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform muzzle;
 
     [SerializeField] private float cooldown = 1f;
-    [SerializeField] private Bullet _selectedBullet;
 
+    private GameObject _selectedBulletPrefab;
     private float _lastShotTime;
 
-    public void SelectBullet(Bullet bullet)
+    public void SelectBullet(GameObject prefab)
     {
-        _selectedBullet = bullet;
+        Debug.Log("Selected bullet: " + prefab.name);
+        _selectedBulletPrefab = prefab;
     }
 
     private void OnEnable()
@@ -23,6 +24,8 @@ public class Gun : MonoBehaviour
 
     private void TryShoot()
     {
+        Debug.Log("Trying to shoot");
+
         if (Time.time - _lastShotTime < cooldown)
             return;
 
@@ -32,6 +35,6 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(_selectedBullet.gameObject, muzzle.position, muzzle.rotation);
+        Instantiate(_selectedBulletPrefab, muzzle.position, muzzle.rotation);
     }
 }
