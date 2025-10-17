@@ -24,6 +24,11 @@ public class Gun : MonoBehaviour
         shootAction.action.started += (ctx) => TryShoot();
     }
 
+    private void OnDisable()
+    {
+        shootAction.action.started -= (ctx) => TryShoot();
+    }
+
     private void TryShoot()
     {
         if (Time.time - _lastShotTime < cooldown)
