@@ -4,7 +4,8 @@ public class ExplosiveBullet : BaseBullet
 {
     [SerializeField] private float explosionRadius = 5f;
 
-    private readonly Collider[] _hitColliders = new Collider[3];
+    private const int Max_Hit_Colliders = 10;
+    private readonly Collider[] _hitColliders = new Collider[Max_Hit_Colliders];
 
     public override void OnCollisionEnter(Collision collision)
     {
