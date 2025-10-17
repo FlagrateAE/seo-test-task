@@ -51,7 +51,9 @@ public class Gun : MonoBehaviour
 
     private Quaternion GetSpreadRotation()
     {
-        float spreadY = Random.Range(-spread / 2f, spread / 2f);
-        return Quaternion.Euler(0, spreadY + 180, 0); //fix
+        float spreadX = Random.Range(0, spread * 0.5f);
+        float spreadY = Random.Range(-spread * 0.5f, spread * 0.5f);
+        Quaternion spreadRotation = Quaternion.Euler(spreadX, spreadY, 0);
+        return muzzle.rotation * spreadRotation;
     }
 }
