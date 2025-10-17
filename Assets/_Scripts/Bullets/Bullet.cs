@@ -9,6 +9,20 @@ public class Bullet : MonoBehaviour
     public virtual void OnHit(Enemy enemy)
     {
         enemy.Hit(gameObject);
+        DestroySelf();
+    }
+
+    public virtual void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.gameObject.CompareTag("Enemy"))
+            return;
+
+        OnHit(collision.gameObject.GetComponent<Enemy>());
+    }
+
+    protected void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 
     private void Start()
@@ -16,10 +30,5 @@ public class Bullet : MonoBehaviour
         GetComponent<Rigidbody>().linearVelocity = transform.forward * speed;
 
         Invoke(nameof(DestroySelf), lifeTime);
-    }
-
-    private void DestroySelf()
-    {
-        Destroy(gameObject);
     }
 }
