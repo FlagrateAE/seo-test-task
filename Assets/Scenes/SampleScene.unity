@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 296241035}
   - component: {fileID: 296241036}
   m_Layer: 5
-  m_Name: Normal
+  m_Name: NormalBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -883,7 +883,7 @@ MonoBehaviour:
         m_MethodName: SelectBullet
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3770583889651915662, guid: 8597465550bcb3a40a92660801f0e104, type: 3}
+          m_ObjectArgument: {fileID: 4952833788347801119, guid: 8597465550bcb3a40a92660801f0e104, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4831,7 +4831,7 @@ MonoBehaviour:
         m_MethodName: SelectBullet
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3770583889651915662, guid: 15141b352b6889b4c87b222b6ac7a444, type: 3}
+          m_ObjectArgument: {fileID: 4719467492854275915, guid: 15141b352b6889b4c87b222b6ac7a444, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5182,7 +5182,7 @@ MonoBehaviour:
         m_MethodName: SelectBullet
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3770583889651915662, guid: 6d8e90f2d14f29c41b2f5a4b49cdb6c1, type: 3}
+          m_ObjectArgument: {fileID: 7191892950352708148, guid: 6d8e90f2d14f29c41b2f5a4b49cdb6c1, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -7100,7 +7100,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 346194836}
   cooldown: 1
   spread: 10
-  selectedBulletPrefab: {fileID: 3770583889651915662, guid: 8597465550bcb3a40a92660801f0e104, type: 3}
+  selectedBulletPrefab: {fileID: 4952833788347801119, guid: 8597465550bcb3a40a92660801f0e104, type: 3}
 --- !u!4 &150588684519501698
 Transform:
   m_ObjectHideFlags: 0
