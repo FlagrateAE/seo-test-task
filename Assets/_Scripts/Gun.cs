@@ -3,11 +3,9 @@ using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
-    [Header("References")]
     [SerializeField] private InputActionReference shootAction;
     [SerializeField] private Transform muzzle;
 
-    [Header("Settings")]
     [SerializeField] private float cooldown = 1f;
     [SerializeField] private Bullet _selectedBullet;
 

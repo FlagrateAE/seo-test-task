@@ -833,7 +833,7 @@ MonoBehaviour:
   shootAction: {fileID: 1120369429361536294, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   muzzle: {fileID: 239471639}
   cooldown: 1
-  _selectedBullet: {fileID: 3831123392993938722, guid: 8597465550bcb3a40a92660801f0e104, type: 3}
+  _selectedBullet: {fileID: 8718127413809610092, guid: 15141b352b6889b4c87b222b6ac7a444, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
