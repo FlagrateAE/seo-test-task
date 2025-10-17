@@ -29,8 +29,8 @@ public class Gun : MonoBehaviour
         if (Time.time - _lastShotTime < cooldown)
             return;
 
-        Shoot();
         _lastShotTime = Time.time;
+        Shoot();
     }
 
     private void Shoot()
@@ -42,6 +42,6 @@ public class Gun : MonoBehaviour
     private Quaternion GetSpreadRotation()
     {
         float spreadY = Random.Range(-spread / 2f, spread / 2f);
-        return Quaternion.Euler(0, spreadY + 180, 0);
+        return Quaternion.Euler(0, spreadY + 180, 0); //fix
     }
 }
