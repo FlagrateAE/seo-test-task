@@ -39,7 +39,12 @@ namespace TestTask.Bullets
                 return;
             }
 
-            var nextEnemy = SelectNextEnemy(exclude: hitEnemy);
+            TargetNextEnemy(hitEnemy);
+        }
+
+        private void TargetNextEnemy(Enemy exclude)
+        {
+            var nextEnemy = SelectNextEnemy(exclude);
 
             if (nextEnemy != null)
             {

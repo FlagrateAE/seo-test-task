@@ -1106,7 +1106,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3513588089167074668, guid: 5b3e87a75a643624ebd7b0a68b119340, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.58
+      value: -7.626
       objectReference: {fileID: 0}
     - target: {fileID: 3513588089167074668, guid: 5b3e87a75a643624ebd7b0a68b119340, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1114,7 +1114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3513588089167074668, guid: 5b3e87a75a643624ebd7b0a68b119340, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.89
+      value: -17.5
       objectReference: {fileID: 0}
     - target: {fileID: 3513588089167074668, guid: 5b3e87a75a643624ebd7b0a68b119340, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2202,8 +2202,8 @@ MonoBehaviour:
   muzzle: {fileID: 1148243827}
   playerAnimator: {fileID: 741793849868111383}
   cooldown: 1
-  spreadX: {x: 0, y: 5}
-  spreadY: {x: -3, y: 3}
+  spreadRangeX: {x: 0, y: 5}
+  spreadRangeY: {x: -3, y: 3}
   selectedBulletPrefab: {fileID: 4952833788347801119, guid: 8597465550bcb3a40a92660801f0e104, type: 3}
 --- !u!1 &72252478703604908
 GameObject:
