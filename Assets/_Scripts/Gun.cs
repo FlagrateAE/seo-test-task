@@ -11,7 +11,8 @@ public class Gun : MonoBehaviour
     private readonly int ShotHash = Animator.StringToHash(Shoot_Trigger);
 
     [SerializeField] private float cooldown = 1f;
-    [SerializeField] private float spread = 5f;
+    [SerializeField] private Vector2 spreadX = new(0, 5);
+    [SerializeField] private Vector2 spreadY = new(-5, 5);
     [SerializeField] private GameObject selectedBulletPrefab;
     private float _timer;
 
@@ -22,6 +23,16 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
+        if (shootAction == null)
+        {
+            Debug.LogError("Shoot Action is not assigned in Gun script.");
+        }
+
+        if (muzzle == null)
+        {
+            Debug.LogError("Muzzle is not assigned in Gun script.");
+        }
+
         if (playerAnimator == null)
         {
             Debug.LogError("Player Animator is not assigned in Gun script.");
@@ -60,8 +71,8 @@ public class Gun : MonoBehaviour
 
     private Quaternion GetSpreadRotation()
     {
-        float spreadX = Random.Range(0, spread * 0.5f);
-        float spreadY = Random.Range(-spread * 0.5f, spread * 0.5f);
+        float spreadX = Random.Range(this.spreadX.x, this.spreadX.y);
+        float spreadY = Random.Range(this.spreadY.x, this.spreadY.y);
         Quaternion spreadRotation = Quaternion.Euler(spreadX, spreadY, 0);
         return muzzle.rotation * spreadRotation;
     }

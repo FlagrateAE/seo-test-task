@@ -2272,7 +2272,8 @@ MonoBehaviour:
   muzzle: {fileID: 1148243827}
   playerAnimator: {fileID: 741793849868111383}
   cooldown: 1
-  spread: 5
+  spreadX: {x: 0, y: 5}
+  spreadY: {x: -3, y: 3}
   selectedBulletPrefab: {fileID: 4952833788347801119, guid: 8597465550bcb3a40a92660801f0e104, type: 3}
 --- !u!1 &72252478703604908
 GameObject:

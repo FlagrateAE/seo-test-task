@@ -5,7 +5,6 @@ public class ExplosiveBullet : Bullet, ISeekMultipleEnemies
 {
     [SerializeField] private float explosionRadius = 5f;
     [SerializeField] private GameObject explosionPrefab;
-    [SerializeField] private float explosionDuration = 4f;
 
     private readonly Collider[] _hitColliders = new Collider[ISeekMultipleEnemies.Max_Hit_Colliders];
     public Collider[] HitColliders => _hitColliders;
