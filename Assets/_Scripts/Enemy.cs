@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
 
     public void Hit(Bullet bullet)
     {
-        animator.TrySetTrigger(ShotHash);
+        animator.SetTrigger(ShotHash);
 
         if (bullet is BouncyBullet)
         {
