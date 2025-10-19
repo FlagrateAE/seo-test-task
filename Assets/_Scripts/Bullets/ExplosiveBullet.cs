@@ -11,6 +11,15 @@ public class ExplosiveBullet : Bullet, ISeekMultipleEnemies
     public Collider[] HitColliders => _hitColliders;
     private GameObject _explosionInstance;
 
+    protected override void Start()
+    {
+        base.Start();
+        if (explosionPrefab == null)
+        {
+            Debug.LogError("Explosion Prefab is not assigned in ExplosiveBullet script.");
+        }
+    }
+
     protected override void OnCollisionEnter(Collision collision)
     {
         Explode();
