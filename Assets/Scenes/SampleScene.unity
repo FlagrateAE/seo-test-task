@@ -316,7 +316,6 @@ GameObject:
   - component: {fileID: 296241032}
   - component: {fileID: 296241034}
   - component: {fileID: 296241033}
-  - component: {fileID: 296241035}
   - component: {fileID: 296241036}
   m_Layer: 5
   m_Name: NormalBullet
@@ -382,7 +381,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296241031}
   m_CullTransparentMesh: 1
---- !u!114 &296241035
+--- !u!114 &296241036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,7 +390,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 296241031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 05f20fc92224cab4b8263fa16e7173db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -436,35 +435,8 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 296241036}
-        m_TargetAssemblyTypeName: BulletButton, Assembly-CSharp
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &296241036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296241031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f20fc92224cab4b8263fa16e7173db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carette: {fileID: 1474535121}
-  caretteSpeed: 0.2
-  caretteOffset: {x: -2, y: 5}
 --- !u!4 &366472756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4719498968730246, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
@@ -1197,6 +1169,7 @@ GameObject:
   - component: {fileID: 1474535121}
   - component: {fileID: 1474535123}
   - component: {fileID: 1474535122}
+  - component: {fileID: 1474535124}
   m_Layer: 5
   m_Name: BulletCarette
   m_TagString: Untagged
@@ -1220,7 +1193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -213.12, y: -378.74}
+  m_AnchoredPosition: {x: -214.3, y: -382.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1474535122
@@ -1261,6 +1234,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474535120}
   m_CullTransparentMesh: 1
+--- !u!114 &1474535124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474535120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a129242bf3811e842b02fe48c01615ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CaretteSpeed: 0.2
 --- !u!1 &1534457451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1337,6 @@ GameObject:
   - component: {fileID: 1584594053}
   - component: {fileID: 1584594055}
   - component: {fileID: 1584594054}
-  - component: {fileID: 1584594056}
   - component: {fileID: 1584594057}
   m_Layer: 5
   m_Name: ExplosiveBullet
@@ -1417,7 +1402,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584594052}
   m_CullTransparentMesh: 1
---- !u!114 &1584594056
+--- !u!114 &1584594057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1426,7 +1411,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1584594052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 05f20fc92224cab4b8263fa16e7173db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1473,33 +1458,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1584594057}
-        m_TargetAssemblyTypeName: BulletButton, Assembly-CSharp
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1584594057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584594052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f20fc92224cab4b8263fa16e7173db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carette: {fileID: 1474535121}
-  caretteSpeed: 0.2
-  caretteOffset: {x: -2, y: 5}
 --- !u!1 &1665023653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,7 +1469,6 @@ GameObject:
   - component: {fileID: 1665023654}
   - component: {fileID: 1665023656}
   - component: {fileID: 1665023655}
-  - component: {fileID: 1665023657}
   - component: {fileID: 1665023658}
   m_Layer: 5
   m_Name: BouncyBullet
@@ -1577,7 +1534,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665023653}
   m_CullTransparentMesh: 1
---- !u!114 &1665023657
+--- !u!114 &1665023658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1586,7 +1543,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665023653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 05f20fc92224cab4b8263fa16e7173db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1633,33 +1590,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1665023658}
-        m_TargetAssemblyTypeName: BulletButton, Assembly-CSharp
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1665023658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665023653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f20fc92224cab4b8263fa16e7173db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carette: {fileID: 1474535121}
-  caretteSpeed: 0.2
-  caretteOffset: {x: -2, y: 5}
 --- !u!1001 &1676998183
 PrefabInstance:
   m_ObjectHideFlags: 0

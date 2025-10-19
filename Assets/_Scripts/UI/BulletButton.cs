@@ -1,17 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 
-[RequireComponent(typeof(Image), typeof(Button))]
-public class BulletButton : MonoBehaviour
+[RequireComponent(typeof(Image))]
+public class BulletButton : Button
 {
-    [SerializeField] private RectTransform carette;
-    [SerializeField] private float caretteSpeed = 0.2f;
-    [SerializeField] private Vector2 caretteOffset = new(0, -10);
-
-
-    public void Select()
+    protected override void Start()
     {
-        carette.DOMove(((Vector2)transform.position) + caretteOffset, caretteSpeed);
+        base.Start();
+
+        onClick.AddListener(() =>
+        {
+            SelectCarette.Select(this);
+        });
     }
 }
