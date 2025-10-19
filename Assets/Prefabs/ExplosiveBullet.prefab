@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8069827507630763573}
   - component: {fileID: 4535929965826142030}
   - component: {fileID: 192354440921171838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1661669709306580152}
   - component: {fileID: 4269095232299294666}
   - component: {fileID: -1674549345923298545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExplosiveBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!114 &4269095232299294666

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8978368991425971568}
   - component: {fileID: 1104387840525090589}
   - component: {fileID: -3523066998489969069}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!114 &1104387840525090589
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 5471848291290917753}
   - component: {fileID: 6630083395570065147}
   - component: {fileID: 5492182801118707509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

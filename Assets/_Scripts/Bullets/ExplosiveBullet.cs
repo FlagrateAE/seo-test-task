@@ -1,32 +1,30 @@
-using System.IO.IsolatedStorage;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosiveBullet : BaseBullet
+public class ExplosiveBullet : Bullet, ISeekMultipleEnemies
 {
     [SerializeField] private float explosionRadius = 5f;
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private float explosionDuration = 4f;
 
-    private const int Max_Hit_Colliders = 10;
-    private readonly Collider[] _hitColliders = new Collider[Max_Hit_Colliders];
+    private readonly Collider[] _hitColliders = new Collider[ISeekMultipleEnemies.Max_Hit_Colliders];
+    public Collider[] HitColliders => _hitColliders;
     private GameObject _explosionInstance;
 
-    public override void OnCollisionEnter(Collision collision)
+    protected override void OnCollisionEnter(Collision collision)
     {
         Explode();
 
-        Physics.OverlapSphereNonAlloc(
-            collision.contacts[0].point,
+        this.SeekEnemies(
+            transform.position,
             explosionRadius,
-            _hitColliders
+            out List<Enemy> enemies
         );
-
-        foreach (var hitCollider in _hitColliders)
+        
+        foreach (var enemy in enemies)
         {
-            if (hitCollider == null) continue;
-            Hit(hitCollider.gameObject);
+            enemy.Hit();
         }
-        _hitColliders.Initialize();
     }
 
     private void Explode()
