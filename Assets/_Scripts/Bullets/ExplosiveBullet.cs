@@ -23,7 +23,7 @@ public class ExplosiveBullet : Bullet, ISeekMultipleEnemies
         
         foreach (var enemy in enemies)
         {
-            enemy.Hit();
+            enemy.Hit(this);
         }
     }
 

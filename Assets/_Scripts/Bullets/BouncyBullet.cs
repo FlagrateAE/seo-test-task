@@ -9,21 +9,21 @@ public class BouncyBullet : Bullet, ISeekMultipleEnemies
     private readonly Collider[] _hitColliders = new Collider[ISeekMultipleEnemies.Max_Hit_Colliders];
     public Collider[] HitColliders => _hitColliders;
 
-    private Collider _collider;
     private int _leftBounces;
+    private Collider _collider;
 
     protected override void Start()
     {
         base.Start();
-        _collider = GetComponent<Collider>();
         _leftBounces = maxBounces;
+        _collider = GetComponent<Collider>();
     }
 
     protected override void OnCollisionEnter(Collision collision)
     {
         _leftBounces--;
         Enemy hit = TryHit(collision.gameObject);
-        Physics.IgnoreCollision(_collider, collision.collider);
+        Debug.Log($"Bullet hit {hit.gameObject.name}");
 
         if (_leftBounces <= 0) DestroySelf();
 
@@ -45,10 +45,10 @@ public class BouncyBullet : Bullet, ISeekMultipleEnemies
             seekRadius,
             out List<Enemy> enemies
         );
+
         if (enemies.Count == 0) return null;
 
         enemies.Remove(exclude);
-
         return enemies.SelectRandom();
     }
 

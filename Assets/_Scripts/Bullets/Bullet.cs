@@ -8,29 +8,33 @@ public class Bullet : MonoBehaviour
 
     protected Rigidbody rb;
 
+    public Collider Collider {get; private set; }
+
     protected virtual void Start()
     {
+        Collider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
         Invoke(nameof(DestroySelf), lifeTime);
     }
 
     protected virtual void OnCollisionEnter(Collision collision)
-    {        
+    {
         TryHit(collision.gameObject);
         DestroySelf();
     }
 
     protected virtual Enemy TryHit(GameObject target)
     {
-        if (target.TryGetComponent<Enemy>(out var enemy))
+        if (target.transform.root.TryGetComponent<Enemy>(out var enemy))
         {
-            enemy.Hit();
+            enemy.Hit(this);
             return enemy;
         }
         else
         {
-            Debug.LogError($"No Enemy component found on {target.name}.");
+
+            Debug.LogError($"No Enemy component on {target.name}.");
             return null;
         }
     }
