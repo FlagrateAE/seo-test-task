@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private Animator playerAnimator;
     private const string Shoot_Trigger = "Shoot";
+    private readonly int ShotHash = Animator.StringToHash(Shoot_Trigger);
 
     [SerializeField] private float cooldown = 1f;
     [SerializeField] private float spread = 5f;
@@ -17,6 +18,14 @@ public class Gun : MonoBehaviour
     public void SelectBullet(GameObject prefab)
     {
         selectedBulletPrefab = prefab;
+    }
+
+    private void Start()
+    {
+        if (playerAnimator == null)
+        {
+            Debug.LogError("Player Animator is not assigned in Gun script.");
+        }
     }
 
     private void OnEnable()
@@ -46,7 +55,7 @@ public class Gun : MonoBehaviour
     private void Shoot()
     {
         Instantiate(selectedBulletPrefab, muzzle.position, GetSpreadRotation());
-        playerAnimator.SetTrigger(Shoot_Trigger);
+        playerAnimator.SetTrigger(ShotHash);
     }
 
     private Quaternion GetSpreadRotation()
