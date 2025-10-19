@@ -6,16 +6,19 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected float speed = 20f;
     [SerializeField] protected float lifeTime = 5f;
 
+    public Collider Collider { get; private set; }
     protected Rigidbody rb;
-
-    public Collider Collider {get; private set; }
+    protected Coroutine _destroyCoroutine;
 
     protected virtual void Start()
     {
         Collider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
-        Invoke(nameof(DestroySelf), lifeTime);
+        _destroyCoroutine = CoroutineManager.InvokeLaterCancellable(
+            () => Destroy(gameObject),
+            lifeTime
+        );
     }
 
     protected virtual void OnCollisionEnter(Collision collision)
@@ -24,7 +27,7 @@ public class Bullet : MonoBehaviour
         {
             enemy.Hit(this);
         }
-        DestroySelf();
+        Destroy(gameObject);
     }
 
     protected bool IsEnemy(GameObject target, out Enemy enemy)
@@ -36,5 +39,8 @@ public class Bullet : MonoBehaviour
         return false;
     }
 
-    protected void DestroySelf() => Destroy(gameObject);
+    protected virtual void OnDestroy()
+    {
+        CoroutineManager.Cancel(_destroyCoroutine);
+    }
 }

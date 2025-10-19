@@ -29,7 +29,7 @@ public class ExplosiveBullet : Bullet, ISeekMultipleEnemies
             explosionRadius,
             out List<Enemy> enemies
         );
-        
+
         foreach (var enemy in enemies)
         {
             enemy.Hit(this);
@@ -45,12 +45,11 @@ public class ExplosiveBullet : Bullet, ISeekMultipleEnemies
             transform.position,
             Quaternion.identity
         );
-
-        Invoke(nameof(DestroySelf), explosionDuration);
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if (_explosionInstance != null)
         {
             Destroy(_explosionInstance);

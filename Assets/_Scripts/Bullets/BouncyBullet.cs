@@ -31,7 +31,7 @@ public class BouncyBullet : Bullet, ISeekMultipleEnemies
 
         if (_leftBounces <= 0)
         {
-            DestroySelf();
+            Destroy(gameObject);
             return;
         }
 
@@ -43,7 +43,7 @@ public class BouncyBullet : Bullet, ISeekMultipleEnemies
         }
         else
         {
-            DestroySelf();
+            Destroy(gameObject);
         }
     }
 

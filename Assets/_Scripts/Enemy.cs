@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         if (bullet is BouncyBullet)
         {
             IgnoreCollision(bullet.Collider);
-            Invoke(nameof(ResetCollisionIgnore), hitCooldown);
+            CoroutineManager.InvokeLater(ResetCollisionIgnore, hitCooldown);
         }
     }
 
