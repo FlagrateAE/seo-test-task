@@ -8,30 +8,6 @@ namespace TestTask.Utilities
     public class CoroutineManager : MonoBehaviour
     {
         private static CoroutineManager _instance;
-        private static bool _isQuitting = false;
-
-        public static CoroutineManager Instance
-        {
-            get
-            {
-                if (_isQuitting)
-                {
-                    return null;
-                }
-
-                if (_instance == null)
-                {
-                    _instance = FindObjectOfType<CoroutineManager>();
-
-                    if (_instance == null)
-                    {
-                        var singletonObject = new GameObject(nameof(CoroutineManager));
-                        _instance = singletonObject.AddComponent<CoroutineManager>();
-                    }
-                }
-                return _instance;
-            }
-        }
 
         private void Awake()
         {
@@ -41,27 +17,21 @@ namespace TestTask.Utilities
                 return;
             }
             _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
-        private void OnDestroy()
-        {
-            _isQuitting = true;
         }
 
         public static void InvokeLater(Action action, float delay)
         {
-            if (Instance != null)
+            if (_instance != null)
             {
-                Instance.StartCoroutine(InvokeRoutine(action, delay));
+                _instance.StartCoroutine(InvokeRoutine(action, delay));
             }
         }
 
         public static Coroutine InvokeLaterCancellable(Action action, float delay)
         {
-            if (Instance != null)
+            if (_instance != null)
             {
-                return Instance.StartCoroutine(InvokeRoutine(action, delay));
+                return _instance.StartCoroutine(InvokeRoutine(action, delay));
             }
             return null;
         }
@@ -70,7 +40,7 @@ namespace TestTask.Utilities
         {
             if (_instance != null && coroutineToCancel != null)
             {
-                Instance.StopCoroutine(coroutineToCancel);
+                _instance.StopCoroutine(coroutineToCancel);
             }
         }
 
