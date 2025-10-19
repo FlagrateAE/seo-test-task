@@ -10,13 +10,11 @@ public class BouncyBullet : Bullet, ISeekMultipleEnemies
     public Collider[] HitColliders => _hitColliders;
 
     private int _leftBounces;
-    private Collider _collider;
 
     protected override void Start()
     {
         base.Start();
         _leftBounces = maxBounces;
-        _collider = GetComponent<Collider>();
     }
 
     protected override void OnCollisionEnter(Collision collision)

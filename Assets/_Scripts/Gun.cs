@@ -55,7 +55,7 @@ public class Gun : MonoBehaviour
     private void Shoot()
     {
         Instantiate(selectedBulletPrefab, muzzle.position, GetSpreadRotation());
-        playerAnimator.SetTrigger(ShotHash);
+        playerAnimator.TrySetTrigger(ShotHash);
     }
 
     private Quaternion GetSpreadRotation()

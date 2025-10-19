@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private List<Collider> _colliders;
     [SerializeField] private float hitCooldown = 0.1f;
+
     private const string Shot_Trigger = "Shot";
     private readonly int ShotHash = Animator.StringToHash(Shot_Trigger);
 
@@ -21,7 +22,7 @@ public class Enemy : MonoBehaviour
 
     public void Hit(Bullet bullet)
     {
-        animator.SetTrigger(ShotHash);
+        animator.TrySetTrigger(ShotHash);
 
         if (bullet is BouncyBullet)
         {
