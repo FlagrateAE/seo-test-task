@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8964351515911629317}
@@ -112,8 +112,8 @@ Transform:
   m_GameObject: {fileID: 4719467492854275915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7671146, y: 0.30150342, z: -13.529579}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8069827507630763573}
@@ -138,8 +138,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.43659374
-  m_Center: {x: 0.001336623, y: 0.13509032, z: -0.000000007450581}
+  m_Radius: 0.09
+  m_Center: {x: 0, y: 0, z: 0.025}
 --- !u!54 &1661669709306580152
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -183,7 +183,6 @@ MonoBehaviour:
   lifeTime: 5
   explosionRadius: 2
   explosionPrefab: {fileID: 1804206099813350, guid: 4dd02b5f854b6c84990fbeb810abffe4, type: 3}
-  explosionDuration: 3
 --- !u!96 &-1674549345923298545
 TrailRenderer:
   serializedVersion: 3
