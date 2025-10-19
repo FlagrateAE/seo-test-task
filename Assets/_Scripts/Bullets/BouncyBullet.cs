@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BouncyBullet : Bullet, ISeekMultipleEnemies
@@ -10,6 +11,7 @@ public class BouncyBullet : Bullet, ISeekMultipleEnemies
     public Collider[] HitColliders => _hitColliders;
 
     private int _leftBounces;
+    private Enemy _lastHitEnemy;
 
     protected override void Start()
     {
@@ -19,13 +21,23 @@ public class BouncyBullet : Bullet, ISeekMultipleEnemies
 
     protected override void OnCollisionEnter(Collision collision)
     {
+        if (
+            !IsEnemy(collision.gameObject, out var hitEnemy) ||
+            hitEnemy == _lastHitEnemy
+        ) return;
+
         _leftBounces--;
-        Enemy hit = TryHit(collision.gameObject);
-        Debug.Log($"Bullet hit {hit.gameObject.name}");
+        _lastHitEnemy = hitEnemy;
+        hitEnemy.Hit(this);
 
-        if (_leftBounces <= 0) DestroySelf();
+        if (_leftBounces <= 0)
+        {
+            DestroySelf();
+            return;
+        }
 
-        var nextEnemy = SelectNextEnemy(exclude: hit);
+        var nextEnemy = SelectNextEnemy(exclude: hitEnemy);
+
         if (nextEnemy != null)
         {
             TargetEnemy(nextEnemy);

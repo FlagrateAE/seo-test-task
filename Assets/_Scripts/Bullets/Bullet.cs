@@ -20,23 +20,20 @@ public class Bullet : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
-        TryHit(collision.gameObject);
+        if (IsEnemy(collision.gameObject, out var enemy))
+        {
+            enemy.Hit(this);
+        }
         DestroySelf();
     }
 
-    protected virtual Enemy TryHit(GameObject target)
+    protected bool IsEnemy(GameObject target, out Enemy enemy)
     {
-        if (target.transform.root.TryGetComponent<Enemy>(out var enemy))
+        if (target.transform.root.TryGetComponent(out enemy))
         {
-            enemy.Hit(this);
-            return enemy;
+            return true;
         }
-        else
-        {
-
-            Debug.LogError($"No Enemy component on {target.name}.");
-            return null;
-        }
+        return false;
     }
 
     protected void DestroySelf() => Destroy(gameObject);

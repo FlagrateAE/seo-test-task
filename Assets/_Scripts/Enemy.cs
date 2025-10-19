@@ -4,8 +4,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private List<Collider> _colliders;
     [SerializeField] private float hitCooldown = 0.1f;
+    [SerializeField] private List<Collider> _colliders;
 
     private const string Shot_Trigger = "Shot";
     private readonly int ShotHash = Animator.StringToHash(Shot_Trigger);
