@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace TestTask
+namespace TestTask.Actors
 {
     public class Gun : MonoBehaviour
     {
@@ -13,8 +13,8 @@ namespace TestTask
         private readonly int ShotHash = Animator.StringToHash(Shoot_Trigger);
 
         [SerializeField] private float cooldown = 1f;
-        [SerializeField] private Vector2 spreadX = new(0, 5);
-        [SerializeField] private Vector2 spreadY = new(-5, 5);
+        [SerializeField] private Vector2 spreadRangeX = new(0, 5);
+        [SerializeField] private Vector2 spreadRangeY = new(-3, 3);
         [SerializeField] private GameObject selectedBulletPrefab;
         private float _timer;
 
@@ -73,8 +73,8 @@ namespace TestTask
 
         private Quaternion GetSpreadRotation()
         {
-            float spreadX = Random.Range(this.spreadX.x, this.spreadX.y);
-            float spreadY = Random.Range(this.spreadY.x, this.spreadY.y);
+            float spreadX = Random.Range(spreadRangeX.x, spreadRangeX.y);
+            float spreadY = Random.Range(this.spreadRangeY.x, this.spreadRangeY.y);
             Quaternion spreadRotation = Quaternion.Euler(spreadX, spreadY, 0);
             return muzzle.rotation * spreadRotation;
         }

@@ -17,6 +17,11 @@ namespace TestTask.Bullets
         protected virtual void Start()
         {
             Collider = GetComponent<Collider>();
+            if (Collider == null)
+            {
+                Debug.LogError("Collider component is not assigned to the bullet.");
+            }
+
             rb = GetComponent<Rigidbody>();
             rb.velocity = transform.forward * speed;
             _destroyCoroutine = CoroutineManager.InvokeLaterCancellable(

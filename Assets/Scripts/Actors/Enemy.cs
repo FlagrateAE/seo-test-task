@@ -8,7 +8,7 @@ namespace TestTask.Actors
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private Animator animator;
-        [SerializeField] private float hitCooldown = 0.1f;
+        [SerializeField] private float collisionResetDelay = 0.1f;
         [SerializeField] private List<Collider> _colliders;
 
         private const string Shot_Trigger = "Shot";
@@ -22,6 +22,11 @@ namespace TestTask.Actors
             {
                 Debug.LogError("Animator component is not assigned in the Enemy script.");
             }
+
+            if (transform.root != transform)
+            {
+                Debug.LogError("Enemy script is not on the root GameObject");
+            }
         }
 
         public void Hit(Bullet bullet)
@@ -31,7 +36,7 @@ namespace TestTask.Actors
             if (bullet is BouncyBullet)
             {
                 IgnoreCollision(bullet.Collider);
-                CoroutineManager.InvokeLater(ResetCollisionIgnore, hitCooldown);
+                CoroutineManager.InvokeLater(ResetCollisionIgnore, collisionResetDelay);
             }
         }
 
@@ -53,7 +58,7 @@ namespace TestTask.Actors
             }
         }
 
-        [ContextMenu("Collect Colliders")]
+        [ContextMenu("Register all colliders")]
         private void CollectColliders()
         {
             _colliders = new List<Collider>(GetComponentsInChildren<Collider>());
